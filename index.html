@@ -242,7 +242,7 @@
         body: JSON.stringify({
           name: nameInput.value,
           text: commentTextarea.value,
-          forceError: true,
+          forceError: false, // По умолчанию ошибка 500 выключена
         })
       })
       .then((response) => {
