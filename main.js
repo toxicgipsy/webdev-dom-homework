@@ -4,6 +4,7 @@ import { getComments } from "./api.js";
 import { postComments } from "./api.js";
 import { getDateComment } from "./date.js";
 import { render } from "./render.js";
+import { sendCommentsEnter } from "./sendenter.js";
 
 const listElement = document.getElementById("list");
 const nameInput = document.getElementById("add-name");
@@ -22,7 +23,7 @@ const fetchAndRenderComments = () => {
         return {
           author: comment.author.name,
           text: comment.text,
-          date: getDateComment(new Date(comment.date)), // Вызываем дату
+          date: getDateComment(new Date(comment.date)), // Вызов даты и времени
           like: comment.likes,
           myLike: comment.isLiked,
         };
@@ -30,7 +31,7 @@ const fetchAndRenderComments = () => {
       comments = appComments;
       renderComments();
     })
-    .then((response) => {
+    .then(() => {
       return (loadedPage.style.display = "none");
     })
     .catch((error) => {
@@ -82,14 +83,8 @@ const initLikeAddListener = () => {
 
 // Отправка сообщений по enter
 const sendMessageByClickEnter = () => {
-  const sendMessage = document
-    .getElementById("add-comment")
-    .addEventListener("keydown", (enter) => {
-      if (enter.key === "Enter") {
-        enter.preventDefault();
-        buttonElement.click();
-      }
-    });
+  const sendMessage = document.getElementById("add-comment");
+  sendCommentsEnter(sendMessage, buttonElement);
 };
 
 // Рендер комментариев

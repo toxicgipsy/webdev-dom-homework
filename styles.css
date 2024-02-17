@@ -154,3 +154,11 @@ body {
   .loaded-page {
     display: block;
   }
+
+  .error {
+    background-color: rgb(220, 72, 96);
+  }
+
+  .error::placeholder {
+    color: #fff;
+  }
