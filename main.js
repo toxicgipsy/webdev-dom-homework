@@ -4,7 +4,7 @@ import { getComments } from "./api.js";
 import { postComments } from "./api.js";
 import { getDateComment } from "./date.js";
 import { render } from "./render.js";
-import { sendCommentsEnter } from "./sendenter.js";
+import { sendCommentsEnter } from "./sendmessageenter.js";
 
 const listElement = document.getElementById("list");
 const nameInput = document.getElementById("add-name");
