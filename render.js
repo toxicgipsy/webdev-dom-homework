@@ -159,7 +159,7 @@ export const renderComments = ({ comments, fetchAndRenderComments }) => {
 
           if (error.message === "Ошибка ввода") {
             alert(
-              `${nameInput.value} и ${commentTextarea.value} должны быть не короче 3 символов`
+              `${nameInput.value} и ${commentTextarea.value} должны быть не короче 3 символов`,
             );
           } else if (error.message === "Сервер упал") {
             alert("Сервер сломался, попробуй позже");
