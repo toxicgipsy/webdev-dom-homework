@@ -1,7 +1,7 @@
 "use strict";
 
 import { getComments } from "./api.js";
-import { getDateComment } from "./date.js";
+import { format } from "date-fns";
 import { renderComments } from "./render.js";
 
 const loadedPage = document.querySelector(".loaded-page");
@@ -16,7 +16,7 @@ export const fetchAndRenderComments = () => {
         return {
           author: comment.author.name,
           text: comment.text,
-          date: getDateComment(new Date(comment.date)), // Вызов даты и времени
+          date: format(new Date(comment.date), "yyyy-MM-dd hh.mm.ss"),
           like: comment.likes,
           myLike: comment.isLiked,
         };
